@@ -134,16 +134,16 @@ public class AlbumMediaLoader extends CursorLoader {
         boolean enableCapture;
 
         if (album.isAll()) {
-            if (SelectionSpec.getInstance().onlyShowGif()) {
+            if (SelectionSpec.onlyShowGif()) {
                 selection = SELECTION_ALL_FOR_GIF;
                 selectionArgs = getSelectionArgsForGifType(
                         MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE);
-            } else if (SelectionSpec.getInstance().onlyShowImages()) {
+            } else if (SelectionSpec.onlyShowImages()) {
                 selection = SELECTION_ALL_FOR_SINGLE_MEDIA_TYPE;
                 selectionArgs =
                         getSelectionArgsForSingleMediaType(
                                 MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE);
-            } else if (SelectionSpec.getInstance().onlyShowVideos()) {
+            } else if (SelectionSpec.onlyShowVideos()) {
                 selection = SELECTION_ALL_FOR_SINGLE_MEDIA_TYPE;
                 selectionArgs =
                         getSelectionArgsForSingleMediaType(
@@ -154,18 +154,18 @@ public class AlbumMediaLoader extends CursorLoader {
             }
             enableCapture = capture;
         } else {
-            if (SelectionSpec.getInstance().onlyShowGif()) {
+            if (SelectionSpec.onlyShowGif()) {
                 selection = SELECTION_ALBUM_FOR_GIF;
                 selectionArgs =
                         getSelectionAlbumArgsForGifType(
                                 MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE, album.getId());
-            } else if (SelectionSpec.getInstance().onlyShowImages()) {
+            } else if (SelectionSpec.onlyShowImages()) {
                 selection = SELECTION_ALBUM_FOR_SINGLE_MEDIA_TYPE;
                 selectionArgs =
                         getSelectionAlbumArgsForSingleMediaType(
                                 MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE,
                                 album.getId());
-            } else if (SelectionSpec.getInstance().onlyShowVideos()) {
+            } else if (SelectionSpec.onlyShowVideos()) {
                 selection = SELECTION_ALBUM_FOR_SINGLE_MEDIA_TYPE;
                 selectionArgs = getSelectionAlbumArgsForSingleMediaType(
                         MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO,
